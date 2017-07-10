@@ -143,7 +143,7 @@ class Rates extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
                             $taxRate['zip_code'],
                             $taxRate[strtolower($taxCalculationRule['code'])],
                             "(" . $taxCalculationRule['short_code'] . ")US-" . $taxRate['state_abbrev']
-                            . "-" . $taxRate['zip_code'] . "')"
+                            . "-" . $taxRate['zip_code']
                         ];
                     }
                     $this->connection->insertArray(
