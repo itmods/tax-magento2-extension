@@ -78,7 +78,7 @@ class Rates extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
                 ->from(
                     ['tax_class' => $taxClassTableName],
                     ['*']
-                );
+                )->where('class_name = ?', $taxClass['class_name']);
             $result = $this->connection->fetchRow($sql);
             if ($result === false) {
                 //add tax Class
@@ -92,7 +92,6 @@ class Rates extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
                 $this->taxClasses[$taxClassCode]['class_id'] = (int)$result['class_id'];
             }
         }
-        return $this->taxClasses;
     }
 
     public function addTaxCalculationRules()
